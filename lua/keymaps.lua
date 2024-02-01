@@ -50,3 +50,26 @@ vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by 
 vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]esume" })
 
+
+-- Window navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+
+-- Navigate buffers
+vim.keymap.set("n", "<S-l>", ":bnext<CR>", opts)
+vim.keymap.set("n", "<S-h>", ":bprevious<CR>", opts)
+
+-- Resize with arrows
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Move text up and down
+vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
+vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
+vim.keymap.set("v", "p", "_dP", opts)
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
