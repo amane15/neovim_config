@@ -21,6 +21,7 @@ return {
 			python = { "isort", "black" },
 			javascript = { { "prettierd", "prettier" } },
 			go = { "gofumpt" },
+			json = { { "prettierd", "prettier" } },
 		},
 		-- Set up format-on-save
 		format_on_save = { timeout_ms = 500, lsp_fallback = true },
@@ -36,4 +37,3 @@ return {
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 	end,
 }
-

@@ -6,8 +6,12 @@ return {
 	},
 	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter.configs").setup({
-			highlight = { enable = true },
+		local configs = require("nvim-treesitter.configs")
+		configs.setup({
+			ensure_installed = {},
+			highlight = {
+				enable = true,
+			},
 		})
 	end,
 }
