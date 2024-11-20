@@ -8,7 +8,6 @@ vim.g.maplocalleader = " "
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
@@ -76,3 +75,15 @@ vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 vim.keymap.set("v", "p", "_dP", opts)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
+
+vim.api.nvim_create_autocmd("InsertCharPre", {
+	callback = function()
+		vim.api.nvim_buf_set_keymap(
+			0,
+			"i",
+			"<C-k>",
+			"<cmd>lua vim.lsp.buf.signature_help()<CR>",
+			{ noremap = true, silent = true }
+		)
+	end,
+})

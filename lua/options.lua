@@ -1,8 +1,8 @@
-vim.o.syntax = true
+vim.o.syntax = "ON"
 vim.o.exrc = true
 vim.o.termguicolors = true
 vim.o.errorbells = true
-vim.o.guicursor = true
+-- vim.o.guicursor = true
 vim.o.relativenumber = true
 vim.o.hlsearch = false
 vim.o.tabstop = 4

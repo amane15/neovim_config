@@ -45,19 +45,30 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
-	-- clangd = {},
+	clangd = {
+		single_file_support = true,
+		cmd = { "clangd" },
+		root_dir = vim.fn.getcwd(),
+	},
 	-- gopls = {},
 	-- pyright = {},
-	-- rust_analyzer = {},
+	rust_analyzer = {
+		single_file_support = true,
+		cmd = { "/run/current-system/sw/bin/rust-analyzer" },
+		root_dir = vim.fn.getcwd(),
+	},
 	-- tsserver = {},
 	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
 	lua_ls = {
 		Lua = {
+			single_file_support = true,
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
 			-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 			-- diagnostics = { disable = { 'missing-fields' } },
+			cmd = { "/run/current-system/sw/bin/lua-language-server" },
+			root_dir = vim.fn.getcwd(),
 		},
 	},
 }
