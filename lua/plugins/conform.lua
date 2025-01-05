@@ -22,6 +22,7 @@ return {
 			javascript = { { "prettierd", "prettier" } },
 			go = { "gofumpt" },
 			json = { { "prettierd", "prettier" } },
+			nix = { "alejandra" },
 		},
 		-- Set up format-on-save
 		format_on_save = { timeout_ms = 500, lsp_fallback = true },
